@@ -23,7 +23,15 @@ interface HealthCheckResponse {
   };
 }
 
-export async function onRequest(context: EventContext<Env, string, unknown>) {
+// Simple type definition for Cloudflare Pages Function context
+interface FunctionContext {
+  request: Request;
+  env: Record<string, string>;
+  params: Record<string, string>;
+  next: () => Promise<Response>;
+}
+
+export async function onRequest(context: FunctionContext) {
   const { request, env } = context;
 
   // Handle HEAD request for simple liveness check
