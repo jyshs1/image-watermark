@@ -1,0 +1,5 @@
+# Cloudflare Pages Redirects Configuration
+# https://developers.cloudflare.com/pages/platform/redirects
+
+# Redirect /home to root
+/home  /  301
